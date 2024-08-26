@@ -1,0 +1,12 @@
+{% extends 'core/base.html' %}
+
+{% block header %}
+    
+{% endblock header %}
+
+
+{% block main %}
+    {% for pais in paises %}
+        <p>{{ pais }}</p>    
+    {% endfor %}
+{% endblock main %}

@@ -1,0 +1,11 @@
+{% extends 'core/base.html' %}
+
+{% block header %}
+    Home Clientes
+{% endblock header %}
+
+{% block main %}
+    <button><a href="{% url 'clientes:cliente_list' %}">Lista de clientes</a></button>
+    <button><a href="{% url 'clientes:pais_list' %}">Lista de paises</a></button>
+{% endblock main %}
+    
