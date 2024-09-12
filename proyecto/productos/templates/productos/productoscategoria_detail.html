@@ -1,0 +1,14 @@
+
+{% extends 'core/base.html' %}
+
+{% block header %}
+Detalles de categorias de productos
+{% endblock header %}
+
+{% block main %}
+<ul>
+    <li>Nombre: {{ object.nombre}}</li>
+    <li>Descripcion: {{object.descripcion}}</li>
+</ul> 
+    <button><a href="{% url 'productos:productoscategoria_list' %}">Volver</a></button>    
+{% endblock main %}

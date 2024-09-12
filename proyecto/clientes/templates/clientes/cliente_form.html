@@ -1,0 +1,21 @@
+{% extends 'core/base.html' %}
+
+{% block header %}
+    Creacion de clientes
+{% endblock header %}
+
+
+{% block main %}
+
+    <form  method = "post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Enviar</button>
+    </form>
+    <!-- <label>Nombre</label>
+    <input type="text" name="nombre">
+    <label>Descripcion</label>
+    <input type="text" name="descripcion"> -->
+
+    <button><a href="{% url 'clientes:cliente_list' %}">Volver</a></button>
+{% endblock main %}

@@ -1,0 +1,16 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block header %}
+    <p>Bienvenidos a mi proyecto</p>
+{% endblock header %}
+
+{% block main %}
+    <div>
+        <img 
+            style="width: 100%; height: auto; display: block; margin: auto;" 
+            src="{% static 'core/img/interior-museum-bucharest-1.webp' %}" 
+            alt="imagen"
+        >
+    </div>
+{% endblock main %}

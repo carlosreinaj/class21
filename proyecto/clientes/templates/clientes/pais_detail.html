@@ -1,0 +1,18 @@
+{% extends 'core/base.html' %}
+
+{% block header %}
+    Detalle de Paises
+{% endblock header %}
+
+
+{% block main %}
+
+    <ul>
+        <li>
+            Nombre de Pais: {{ object.nombre}}
+        </li>
+    </ul>
+    <button><a href="{% url 'clientes:pais_list' %}">Volver</a></button>
+{% endblock main %}
+
+<button><a href=""></a></button>

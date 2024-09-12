@@ -1,0 +1,14 @@
+{% extends 'core/base.html' %}
+
+{% block header %}
+Borar categorias de productos
+{% endblock header %}
+
+{% block main %}
+<p>¿Esta seguro que desea borrar la categoria de productos "{{ object.nombre}}"?</p>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Confirmar</button>
+</form>
+    <button><a href="{% url 'productos:productoscategoria_list' %}">Volver</a></button>    
+{% endblock main %}

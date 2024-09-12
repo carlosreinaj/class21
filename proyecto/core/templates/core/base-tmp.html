@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css"
+> -->
+    <!-- <span class="pln">
+    </span><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic"><span class="pln">
+    </span><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css"><span class="pln">
+    </span><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css"><span class="pln">
+    </span> -->
+</head>
+<body style="margin: 2%;">
+    <header>
+        <h1 style="text-align:center;">
+            {% block header %}
+            
+            {% endblock header %}
+        </h1>
+    </header>
+
+    <nav>{% include 'core/componentes/navbar.html' %}</nav>
+    <main>
+        <div style="display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        gap: 5px;
+        padding-inline: 10%;">
+            {% block main %}
+            {% endblock main %}
+        </div>
+    </main>
+
+    <footer>
+        {% include 'core/componentes/footer.html' %}
+    </footer>
+</body>
+</html>

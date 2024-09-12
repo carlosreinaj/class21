@@ -1,12 +1,35 @@
 {% extends 'core/base.html' %}
 
 {% block header %}
-    
+    Lista de Paises
 {% endblock header %}
 
 
 {% block main %}
-    {% for pais in paises %}
-        <p>{{ pais }}</p>    
-    {% endfor %}
+
+    <form action="{% url 'clientes:pais_list' %}" method="get">
+        <input type="text" name="q" placeholder="Buscar...">
+        <button type="submit">Buscar</button>
+        <button><a href="{% url 'clientes:pais_form' %}">Crear Nuevo Pais</a></button>
+    </form>
+
+    <table>
+        <thead>
+        </thead>
+        <tbody>
+            {% for object in object_list %}
+            <tr>
+                <td>{{ object.nombre }}</td>
+                <td><a href="{% url 'clientes:pais_detail' object.id %}">Detalle</a></td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="2">No hay registros</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <button><a href="{% url 'clientes:index' %}">Volver</a></button>
 {% endblock main %}
+
+<button><a href=""></a></button>

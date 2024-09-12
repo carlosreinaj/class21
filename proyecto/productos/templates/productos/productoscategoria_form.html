@@ -1,0 +1,26 @@
+{% extends 'core/base.html' %}
+
+{% block header %}
+    {% if form.instance.pk %}
+        Actualizando Categoria de Productos
+    {% else %}
+        Creando Categoria de Productos
+    {% endif %}
+{% endblock header %}
+
+
+{% block main %}
+
+    <form  method = "post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Enviar</button>
+    </form>
+    <!-- <label>Nombre</label>
+    <input type="text" name="nombre">
+    <label>Descripcion</label>
+    <input type="text" name="descripcion"> -->
+
+    <button><a href="{% url 'productos:productoscategoria_list' %}">Volver</a></button>
+{% endblock main %}
+

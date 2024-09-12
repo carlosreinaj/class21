@@ -1,11 +1,35 @@
 {% extends 'core/base.html' %}
 
 {% block header %}
-
+    Lista de Clientes
 {% endblock header %}
 
 {% block main %}
-    {% for cliente in clientes %}
-        <p>{{ cliente }}</p>
-    {% endfor %}
+    <form action="{% url 'clientes:cliente_list' %}" method="get">
+        <input type="text" name="q" placeholder="Buscar...">
+        <button type="submit">Buscar</button>
+        <button><a href="{% url 'clientes:cliente_form' %}">Crear Nuevo Cliente</a></button>
+    </form>
+    <table>
+        <tbody>
+            {% for object in object_list %}
+            <tr>
+                <td>{{ object.apellido | upper }}</td>
+                <td>{{ object.nombre }}</td>
+                <td>
+                    {% if object.pais_origen_id.nombre %}
+                        {{ object.pais_origen_id.nombre }}
+                    {% else %}
+                        -
+                    {% endif %}
+                </td>
+            </tr>
+            {% empty %}
+            <tr> 
+                <td colspan="3">No hay registros</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <button><a href="{% url 'clientes:index' %}">Volver</a></button>
 {% endblock main %}

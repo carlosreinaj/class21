@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+from django.urls import reverse_lazy
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-g$3@4a#j@q4sf7f)o9dinxyc*p@i(pet#hy#5lf&=6(4q9^1cf'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["carlosreinaj.pythonanywhere.com"]
 
 
 # Application definition
@@ -39,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'clientes',
     'core',
-    'productos'
+    'productos',
+    'ventas',
 ]
 
 MIDDLEWARE = [
@@ -108,7 +110,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Bogota'
 
 USE_I18N = True
 
@@ -124,3 +126,21 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Configuracion de autenticaciones
+
+LOGIN_URL = reverse_lazy('core:login') #URL DE LA PAGINA DE INICIO DE SESION
+LOGIN_REDIRECT_URL = reverse_lazy('core:index') #URL A LA QUE REDIRIGE DESPUES DEL INICIO DE SESION EXITOSO
+
+# MEDIA_ROOT Sirve para indicar la ruta donde se almacenara los archivos multimedia
+MEDIA_ROOT = BASE_DIR / 'media'
+# MEDIA_URL indica la url publica desde donde se podran acceder a los archivos multimedia
+MEDIA_URL = '/media/'
+
+STATIC_ROOT = BASE_DIR / "static"
+
+try:
+    #Importa la configuracion de desarrollo cuando el archivo esté
+    from .settings_dev import *
+except ModuleNotFoundError:
+    pass
